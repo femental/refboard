@@ -1,8 +1,9 @@
 package com.emopicture.domain;
 
 import java.sql.Date;
+import java.util.Arrays;
 
-public class BoardVO {
+public class RefBoardVO {
 
 	private Integer bno;
 	private String title;
@@ -15,9 +16,16 @@ public class BoardVO {
 	private String nickname;
 	private Integer attyn;
 	
+	private String[] files;
+		
 	
 	
-	
+	public String[] getFiles() {
+		return files;
+	}
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
 	public Integer getAttyn() {
 		return attyn;
 	}
@@ -82,8 +90,9 @@ public class BoardVO {
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regdate="
 				+ regdate + ", updatedate=" + updatedate + ", viewcnt=" + viewcnt + ", replycnt=" + replycnt
-				+ ", nickname=" + nickname + ", attyn=" + attyn + "]";
+				+ ", nickname=" + nickname + ", attyn=" + attyn + ", files=" + Arrays.toString(files) + "]";
 	}
+	
 	
 	
 	

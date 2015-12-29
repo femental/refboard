@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.emopicture.domain.Criteria;
 import com.emopicture.domain.PageMaker;
 import com.emopicture.domain.ReplyVO;
-import com.emopicture.persistence.BoardMapper;
+import com.emopicture.persistence.RefBoardMapper;
 import com.emopicture.service.ReplyService;
 
 @RestController
@@ -30,7 +30,7 @@ public class ReplyController {
 	private ReplyService service;
 	
 	@Inject
-	private BoardMapper bMapper;
+	private RefBoardMapper bMapper;
 
 	private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
 

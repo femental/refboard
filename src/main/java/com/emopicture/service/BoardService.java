@@ -27,7 +27,7 @@ public interface BoardService<V, K> {
    
    
    public void attyn(K key)throws Exception;
-   
+   public void regist(V vo)throws Exception;
   
    
 }

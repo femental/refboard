@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.emopicture.domain.BoardVO;
+import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
 import com.emopicture.service.BoardService;
 
@@ -25,7 +25,7 @@ public class BoardController {
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void searchlist(@ModelAttribute("cri") Criteria cri,  Model model) throws Exception {
-		cri.setTotalCount(bService.totalcount());	
+		cri.setTotalCount(bService.totalcount());
 		System.out.println(bService.totalcount());
 		model.addAttribute("list", bService.search(cri));
 	}
@@ -42,7 +42,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String createPost(BoardVO vo) throws Exception {
+	public String createPost(RefBoardVO vo) throws Exception {
 		System.out.println(vo.getTitle());
 		bService.create(vo);
 		return "redirect:/board/list";
@@ -55,7 +55,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modifyPost(BoardVO vo) throws Exception {
+	public String modifyPost(RefBoardVO vo) throws Exception {
 		bService.update(vo);
 		return "redirect:/board/list";
 	}
@@ -67,11 +67,6 @@ public class BoardController {
 	}
 	
 	
-	
-	
-	   @RequestMapping(value="/refboard", method=RequestMethod.GET)
-	   public String freeboard(){
-		   return "/board/refboard";
-	   }
+
 
 }

@@ -5,34 +5,35 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.emopicture.domain.BoardVO;
+import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
-import com.emopicture.persistence.BoardMapper;
+import com.emopicture.persistence.RefBoardMapper;
 
 @Service
-public class BoardServiceImpl implements BoardService<BoardVO, Integer> {
+public class BoardServiceImpl implements BoardService<RefBoardVO, Integer> {
 
 	@Inject
-	private BoardMapper mapper;
+	private RefBoardMapper mapper;
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
+	public List<RefBoardVO> listAll() throws Exception {
 		return mapper.listAll();
 	}
 
 	@Override
-	public List<BoardVO> listpage(int page) throws Exception {
+	public List<RefBoardVO> listpage(int page) throws Exception {
 		return mapper.listpage(page);
 	}
 
 	@Override
-	public void create(BoardVO vo) throws Exception {
+	public void create(RefBoardVO vo) throws Exception {
 		mapper.create(vo);
 	}
 
 	@Override
-	public BoardVO read(Integer bno) throws Exception {
+	public RefBoardVO read(Integer bno) throws Exception {
 		return mapper.read(bno);
 	}
 
@@ -42,7 +43,7 @@ public class BoardServiceImpl implements BoardService<BoardVO, Integer> {
 	}
 
 	@Override
-	public void update(BoardVO vo) throws Exception {
+	public void update(RefBoardVO vo) throws Exception {
 		mapper.update(vo);
 	}
 
@@ -59,7 +60,7 @@ public class BoardServiceImpl implements BoardService<BoardVO, Integer> {
 	
 
 	@Override
-	public List<BoardVO> search(Criteria cri) throws Exception {
+	public List<RefBoardVO> search(Criteria cri) throws Exception {
 		return mapper.search(cri);
 	}
 
@@ -67,6 +68,19 @@ public class BoardServiceImpl implements BoardService<BoardVO, Integer> {
 	@Override
 	public void attyn(Integer bno) throws Exception {
 		 mapper.attyn(bno);
+		
+	}
+
+	@Transactional
+	@Override
+	public void regist(RefBoardVO vo) throws Exception {
+		mapper.create(vo);
+		String[] files=vo.getFiles();
+		
+		if(files == null) {return;}
+		for(String fileName : files){
+			mapper.addAttach(fileName);
+		}
 		
 	}
 

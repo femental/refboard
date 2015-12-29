@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.emopicture.domain.BoardVO;
+import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
 
 @Repository
-public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implements BoardMapper {
+public class RefBoardMapperImpl extends AbstractCRUDMapper<RefBoardVO, Integer> implements RefBoardMapper {
 
 	@Override
-	public List<BoardVO> listpage(int page) throws Exception {
+	public List<RefBoardVO> listpage(int page) throws Exception {
 
 		return session.selectList(namespace+".listpage",page);
 	}
@@ -30,7 +30,7 @@ public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implem
 	}
 
 	@Override
-	public List<BoardVO> search(Criteria cri) throws Exception {
+	public List<RefBoardVO> search(Criteria cri) throws Exception {
 		return session.selectList(namespace+".search",cri);
 	}
 
@@ -43,6 +43,12 @@ public class BoardMapperImpl extends AbstractCRUDMapper<BoardVO, Integer> implem
 	@Override
 	public void attyn(Integer bno) throws Exception {
 		session.update(namespace+ ".attyn", bno);
+		
+	}
+
+	@Override
+	public void addAttach(String fullName) throws Exception {
+		session.insert(namespace+ ".addAttach", fullName);
 		
 	}
 

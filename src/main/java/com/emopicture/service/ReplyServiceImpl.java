@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.emopicture.domain.Criteria;
 import com.emopicture.domain.ReplyVO;
-import com.emopicture.persistence.BoardMapper;
+import com.emopicture.persistence.RefBoardMapper;
 import com.emopicture.persistence.ReplyMapper;
 
 @Service
@@ -19,7 +19,7 @@ public class ReplyServiceImpl implements ReplyService<ReplyVO, Integer> {
 	private ReplyMapper mapper;
 	
 	@Inject
-	private BoardMapper bMapper;
+	private RefBoardMapper bMapper;
 	
 	
 	

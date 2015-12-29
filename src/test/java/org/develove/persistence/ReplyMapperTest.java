@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.emopicture.domain.Criteria;
 import com.emopicture.domain.PageMaker;
 import com.emopicture.domain.ReplyVO;
-import com.emopicture.persistence.BoardMapper;
+import com.emopicture.persistence.RefBoardMapper;
 import com.emopicture.service.ReplyService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,7 +30,7 @@ public class ReplyMapperTest {
 	private ReplyService service;
 	
 	@Autowired
-	private BoardMapper bMapper;
+	private RefBoardMapper bMapper;
 	
 	private ReplyVO vo;
 	

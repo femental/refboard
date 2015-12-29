@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.emopicture.domain.BoardVO;
+import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
-import com.emopicture.persistence.BoardMapper;
+import com.emopicture.persistence.RefBoardMapper;
 import com.emopicture.service.BoardService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,7 +23,7 @@ public class BoardMapperTest {
 	private BoardService service;
 	
 	@Autowired
-	private BoardMapper mapper;
+	private RefBoardMapper mapper;
 
 	@Test
 	public void listTest() throws Exception {
@@ -32,10 +32,10 @@ public class BoardMapperTest {
 
 	@Test
 	public void createTest() throws Exception {
-		BoardVO vo = new BoardVO();
-		vo.setTitle("자료실");
-		vo.setContent("첨부파일 싫어잉");
-		vo.setNickname("운식");
+		RefBoardVO vo = new RefBoardVO();
+		vo.setTitle("짤방");
+		vo.setContent("찾고싶다");
+		vo.setNickname("이영준");
 		
 		service.create(vo);
 	}

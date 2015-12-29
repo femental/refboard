@@ -3,10 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.emopicture.persistence.BoardMapper">
+<mapper namespace="com.emopicture.persistence.RefBoardMapper">
 
 	
-	<resultMap type="com.emopicture.domain.BoardVO" id="resultset"></resultMap>
+	<resultMap type="com.emopicture.domain.RefBoardVO" id="resultset"></resultMap>
 	
 	<select id="listpage" resultMap="resultset">
 	<![CDATA[
@@ -14,7 +14,7 @@
 		]]>  	
 	</select>
 	
-	<select id="search" resultType="com.emopicture.domain.BoardVO">
+	<select id="search" resultType="com.emopicture.domain.RefBoardVO">
 		<![CDATA[
 			select * 
 			from
@@ -39,7 +39,7 @@
 		insert into tbl_refboard (bno, title, content, nickname) values (seq_refboard.nextval, #{title}, #{content}, #{nickname})
 	</insert>
 	
-	<select id="read" resultType="com.emopicture.domain.BoardVO">
+	<select id="read" resultType="com.emopicture.domain.RefBoardVO">
 		select * from tbl_refboard where bno=#{bno}
 	</select>
 	
@@ -63,6 +63,10 @@
 		update tbl_refboard set replycnt = (select count(rno) 
 		from tbl_reply where bno = #{bno}) where bno = #{bno}
 	</update>	
+	
+	<insert id="updateattach">
+		insert into tbl_attach(fullname, bno)values (#{fullname}, LAST_INSERT_ID())
+	</insert>
 	
 
 </mapper>
