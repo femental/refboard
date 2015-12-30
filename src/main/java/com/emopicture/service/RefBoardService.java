@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.emopicture.domain.Criteria;
 
-public interface BoardService<V, K> {
+public interface RefBoardService<V, K> {
 
    
    public List<V> listAll() throws Exception;

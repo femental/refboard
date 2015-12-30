@@ -12,7 +12,7 @@ import com.emopicture.domain.Criteria;
 import com.emopicture.persistence.RefBoardMapper;
 
 @Service
-public class BoardServiceImpl implements BoardService<RefBoardVO, Integer> {
+public class RefBoardServiceImpl implements RefBoardService<RefBoardVO, Integer> {
 
 	@Inject
 	private RefBoardMapper mapper;

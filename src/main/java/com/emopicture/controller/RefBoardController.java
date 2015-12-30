@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
-import com.emopicture.service.BoardService;
+import com.emopicture.service.RefBoardService;
 
 @Controller
-@RequestMapping("/board/*")
-public class BoardController {
+@RequestMapping("/refboard/*")
+public class RefBoardController {
 
 	@Inject
-	private BoardService bService;
+	private RefBoardService bService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
+	private static final Logger logger = LoggerFactory.getLogger(RefBoardController.class);
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void searchlist(@ModelAttribute("cri") Criteria cri,  Model model) throws Exception {
@@ -45,28 +45,27 @@ public class BoardController {
 	public String createPost(RefBoardVO vo) throws Exception {
 		System.out.println(vo.getTitle());
 		bService.create(vo);
-		return "redirect:/board/list";
+		return "redirect:/refboard/list";
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
 	public void modify(int bno, Model model) throws Exception {
 		System.out.println(bno);
-		model.addAttribute("board", bService.read(bno));
+		model.addAttribute("refboard", bService.read(bno));
 	}
 
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public String modifyPost(RefBoardVO vo) throws Exception {
 		bService.update(vo);
-		return "redirect:/board/list";
+		return "redirect:/refboard/list";
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(int bno) throws Exception {
 		bService.delete(bno);
-		return "redirect:/board/list";
+		return "redirect:/refboard/list";
 	}
 	
 	
-
 
 }

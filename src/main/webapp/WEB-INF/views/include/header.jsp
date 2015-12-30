@@ -32,7 +32,7 @@
                         <ul class="gn-menu">
                             <li><a href="/notice" class="gn-icon gn-icon-help">공지사항</a></li>
                             <li><a href="/board/list" class="gn-icon gn-icon-pictures">짤방게시판</a></li>
-                            <li><a href="/board/list" class="gn-icon gn-icon-none">짤방게시판</a></li>
+                            <li><a href="/refboard/list" class="gn-icon gn-icon-none">자료실</a></li>
                             <li><a href="/board/list" class="gn-icon gn-icon-none">짤방게시판</a></li>
                             <li><a href="/board/list" class="gn-icon gn-icon-none">짤방게시판</a></li>
                             <li><a href="/board/freeboard" class="gn-icon gn-icon-article">자유게시판</a></li>

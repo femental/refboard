@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.emopicture.domain.RefBoardVO;
 import com.emopicture.domain.Criteria;
 import com.emopicture.persistence.RefBoardMapper;
-import com.emopicture.service.BoardService;
+import com.emopicture.service.RefBoardService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
@@ -20,7 +20,7 @@ public class BoardMapperTest {
 	protected static final Logger logger = LoggerFactory.getLogger(BoardMapperTest.class);
 
 	@Autowired
-	private BoardService service;
+	private RefBoardService service;
 	
 	@Autowired
 	private RefBoardMapper mapper;
